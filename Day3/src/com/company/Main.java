@@ -50,12 +50,63 @@ public class Main {
         }
         gammaDec = Integer.parseInt(gammaBin,2);
         epsDec = Integer.parseInt(epsBin,2);
-        System.out.println(gammaDec);
-        System.out.println(epsDec);
         System.out.println(epsDec*gammaDec);
     }
 
     static void ptTwo() {
+        Scanner sc = new Scanner(Input.input);
+        ArrayList<String> arrConst = new ArrayList<String>();
+        while (sc.hasNext()) {
+            String token = sc.next();
+            arrConst.add(token);
+        }
+        ArrayList<String> arr = arrConst;
 
+        jLoop: for (int j = 0; j < arrConst.get(0).length(); j++) {
+            ArrayList<String> moreOnesArr = new ArrayList<String>();
+            ArrayList<String> moreZerosArr = new ArrayList<String>();
+            iLoop: for (int i = 0; i < arr.size(); i++) {
+                String binNum = arr.get((i));
+                if (binNum.charAt(j) == '1') {
+                    moreOnesArr.add(arr.get(i));
+                } else {
+                    moreZerosArr.add(arr.get(i));
+                }
+            }
+            if (moreOnesArr.size() >= moreZerosArr.size()) {
+                arr = moreOnesArr;
+            } else {
+                arr = moreZerosArr;
+            }
+            if (arr.size() == 1) {
+                break jLoop;
+            }
+        }
+        int o2dec = Integer.parseInt(arr.get(0),2);
+        arr = arrConst;
+
+        jLoop: for (int j = 0; j < arrConst.get(0).length(); j++) {
+            ArrayList<String> fewerOnesArr = new ArrayList<String>();
+            ArrayList<String> fewerZerosArr = new ArrayList<String>();
+            iLoop: for (int i = 0; i < arr.size(); i++) {
+                String binNum = arr.get((i));
+                if (binNum.charAt(j) == '1') {
+                    fewerOnesArr.add(arr.get(i));
+                } else {
+                    fewerZerosArr.add(arr.get(i));
+                }
+            }
+
+            if (fewerOnesArr.size() < fewerZerosArr.size()) {
+                arr = fewerOnesArr;
+            } else {
+                arr = fewerZerosArr;
+            }
+            if (arr.size() == 1) {
+                break jLoop;
+            }
+        }
+        int co2dec = Integer.parseInt(arr.get(0),2);
+        System.out.println(o2dec*co2dec);
     }
 }
