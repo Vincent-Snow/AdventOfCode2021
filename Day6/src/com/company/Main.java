@@ -33,9 +33,7 @@ public class Main {
     static void ptTwo() {
 
         String arrFishes[] = Input.input.split(",");
-        List<String> fishes = new ArrayList<String>();
         HashMap<Integer,Long> fishDays = new HashMap<Integer, Long>();
-        Collections.addAll(fishes,arrFishes);
         for (int i = 0; i < 9; i++) {
             fishDays.put(i, 0L);
         }
@@ -44,9 +42,7 @@ public class Main {
             fishDays.put(intFish, fishDays.get(intFish) + 1);
 
         }
-        System.out.println(fishDays);
         int i = 0;
-
         while (i < 256) {
 
             int size = fishDays.size();
