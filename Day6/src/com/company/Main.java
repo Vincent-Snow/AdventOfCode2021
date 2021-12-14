@@ -47,6 +47,7 @@ public class Main {
 
             int size = fishDays.size();
             HashMap<Integer,Long> fishOfTheDay = new HashMap<Integer,Long>();
+
             for (int d = size-1; d >= 0; d--) {
                 Long daily = fishDays.get(d);
                 if (d != 0) {
