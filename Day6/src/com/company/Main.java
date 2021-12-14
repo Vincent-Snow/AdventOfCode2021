@@ -48,18 +48,16 @@ public class Main {
             int size = fishDays.size();
             HashMap<Integer,Long> fishOfTheDay = new HashMap<Integer,Long>();
             for (int d = size-1; d >= 0; d--) {
-                Long daily = 0L;
+                Long daily = fishDays.get(d);
                 if (d != 0) {
-                    daily = fishDays.get(d);
                     fishOfTheDay.put(d-1,daily);
-                } else if (d == 0) {
-                    daily = fishDays.get(d);
+                }  if (d == 0) {
                     fishOfTheDay.put(6,fishOfTheDay.get(6) + daily);
                     fishOfTheDay.put(8,daily);
                 }
             }
             fishDays = fishOfTheDay;
-                        i++;
+            i++;
         }
         Long c = 0L;
         for (Long fishCount: fishDays.values()) {
