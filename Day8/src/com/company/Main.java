@@ -129,7 +129,6 @@ public class Main {
             String six = sortString(p[0]+p[1]+p[3]+p[4]+p[5]+p[6]);
             String zero = sortString(p[0]+p[1]+p[2]+p[4]+p[5]+p[6]);
             String nine = sortString(p[0]+p[1]+p[2]+p[3]+p[5]+p[6]);
-
             String outputDigits[] = digits[1].trim().split(" ");
             String strNum = "";
             for (int dig = 0; dig < outputDigits.length; dig++) {
